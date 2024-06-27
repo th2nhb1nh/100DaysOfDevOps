@@ -40,7 +40,7 @@
     - **Notes:**
         - `rebase`: imagine like changing the base of the feature 
         ![alt text](<Git Rebase Tutorial.png>)
-        - `merge`:
+        - `merge`: add text
         
 
 2. **Cherry-Picking** (10 minutes)
