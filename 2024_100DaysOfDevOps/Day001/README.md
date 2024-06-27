@@ -37,6 +37,8 @@
         ```sh
         git rebase -i HEAD~3
         ```
+    - **Notes:**
+        - 
 
 2. **Cherry-Picking** (10 minutes)
     - Identify a commit from one branch and apply it to another branch.
@@ -44,6 +46,8 @@
         git checkout another-branch
         git cherry-pick <commit-hash>
         ```
+    - **Notes:**
+        - 
 
 3. **Stashing** (10 minutes)
     - Stash uncommitted changes and apply them later.
@@ -51,6 +55,8 @@
         git stash
         git stash apply
         ```
+    - **Notes:**
+        - 
 
 4. **Resetting** (10 minutes)
     - Experiment with different reset options.
@@ -59,39 +65,57 @@
         git reset --mixed <commit-hash>
         git reset --hard <commit-hash>
         ```
+    - **Notes:**
+        - 
 
 5. **Reflog** (10 minutes)
     - Use `git reflog` to recover a lost commit.
         ```sh
         git reflog
         ```
+    - **Notes:**
+        - 
 
 ### Branching Strategies
 6. **Branching Strategies** (10 minutes)
     - Study different branching strategies (Git Flow, GitHub Flow, Trunk-Based Development).
+    - **Notes:**
+        - 
 
 ### Collaborating on GitHub
 7. **Pull Requests** (10 minutes)
     - Create a new repository on GitHub.
     - Create a pull request and write a comprehensive description.
+    - **Notes:**
+        - 
 
 8. **Code Reviews** (10 minutes)
     - Invite a collaborator to review your pull request.
     - Review a collaborator’s pull request and provide feedback.
+    - **Notes:**
+        - 
 
 ## Hands-On Exercises (1 Hour)
 
 ### Exercise 1: Advanced Git Commands (20 minutes)
 - Create a repository and simulate a workflow involving rebasing, cherry-picking, and stashing.
+- **Notes:**
+    - 
 
 ### Exercise 2: Branching Strategies (20 minutes)
 - Implement Git Flow or GitHub Flow on a small project.
+- **Notes:**
+    - 
 
 ### Exercise 3: GitHub Collaboration (20 minutes)
 - Create a pull request on GitHub, request a review, and perform a code review.
+- **Notes:**
+    - 
 
 ### Evening Review
 9. **Review and Reflect** (10 minutes)
     - Summarize what you've learned about advanced Git commands, branching strategies, and collaboration on GitHub.
     - Reflect on any challenges faced during hands-on exercises and how to overcome them.
     - Plan for the next day’s topic: Advanced Linux Command-Line Operations and Scripting.
+    - **Notes:**
+        - 
