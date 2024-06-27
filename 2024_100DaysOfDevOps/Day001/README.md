@@ -31,11 +31,12 @@
     - Practice rebasing a feature branch onto the main branch.
         ```sh
         git checkout -b feature-branch # create and checkout to the new branch
+        git checkout feature-branch # checkout existent branch
         git add .
         git commit -m "Commit message for feature-branch"
         git push --set-upstream origin feature-branch # git push and change up-stream to the tip of the new branch
         git rebase master # change the base of the feature-branch to the tip of the master branch, while still keep the history commits
-        git push origin --delete feature-branch # 
+        git push origin --delete feature-branch # push the change and delete the remote branch
         ```
     - Interactive Rebase Example:
         ```sh
