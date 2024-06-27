@@ -30,7 +30,7 @@
     - Watch a tutorial or read documentation on `git rebase` and `git rebase -i`.
     - Practice rebasing a feature branch onto the main branch.
         ```sh
-        git checkout feature-branch
+        git checkout -b feature-branch
         git rebase main
         ```
     - Interactive Rebase Example:
@@ -38,7 +38,10 @@
         git rebase -i HEAD~3
         ```
     - **Notes:**
-        - 
+        - `rebase`: imagine like changing the base of the feature 
+        ![alt text](<Git Rebase Tutorial.png>)
+        - `merge`:
+        
 
 2. **Cherry-Picking** (10 minutes)
     - Identify a commit from one branch and apply it to another branch.
