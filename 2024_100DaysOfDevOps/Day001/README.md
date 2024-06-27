@@ -31,7 +31,9 @@
     - Practice rebasing a feature branch onto the main branch.
         ```sh
         git checkout -b feature-branch
-        git rebase main
+        git add .
+        git commit -m "Commit message for feature-branch"
+        git rebase master
         ```
     - Interactive Rebase Example:
         ```sh
