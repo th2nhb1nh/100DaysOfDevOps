@@ -35,6 +35,7 @@
         git commit -m "Commit message for feature-branch"
         git push --set-upstream origin feature-branch # git push and change up-stream to the tip of the new branch
         git rebase master # change the base of the feature-branch to the tip of the master branch, while still keep the history commits
+        git push origin --delete feature-branch # 
         ```
     - Interactive Rebase Example:
         ```sh
@@ -42,9 +43,12 @@
         ```
     - **Notes:**
         - `rebase`: imagine like changing the base of the feature 
-        ![alt text](<Git Rebase Tutorial.png>)
-        - `merge`: add text
-        
+        ![Git Rebase](<Git Rebase Tutorial.png>)
+        - `merge`: squash all the history commits if the branch into a merge commit in the base branch. There're 2 types of merge: fast-forward and 3-way merge.
+          - fast-forward: if the base branch doesn't have any new commit, then `--ff-only` would move the HEAD to the tip of the feature branch. But this would fail if the base branch does have other commits after branch. Then we must use 3-way merge.
+          ![Fast forward merge](<Fast forward merge.png>)
+          - 3-way merge: 
+          ![3-way merge](<3-way merge.png>)
 
 2. **Cherry-Picking** (10 minutes)
     - Identify a commit from one branch and apply it to another branch.
