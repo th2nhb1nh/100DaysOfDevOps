@@ -39,21 +39,21 @@
     - Watch a tutorial or read documentation on `git rebase` and `git rebase -i`.
     - Practice rebasing a feature branch onto the main branch.
         ```sh
-        git checkout -b feature-branch # create and checkout to the new branch
-        git checkout feature-branch # checkout existent branch
+        git checkout -b feature-branch  # create and checkout to the new branch
+        git checkout feature-branch     # checkout existent branch
         git add .
         git commit -m "Commit message for feature-branch"
-        git push --set-upstream origin feature-branch # git push and change up-stream to the tip of the new branch
-        git rebase master # change the base of the feature-branch to the tip of the master branch, while still keep the history commits
-        git push origin --delete feature-branch # push the change and delete the remote branch
+        git push --set-upstream origin feature-branch   # git push and change up-stream to the tip of the new branch
+        git rebase master   # change the base of the feature-branch to the tip of the master branch, while still keep the history commits
+        git push origin --delete feature-branch         # push the change and delete the remote branch
         ```
     - Resolve the conflicts:
         ```sh
         # first, edit the conflict parts in IDE
-        git add <resolved-files> # stage the resolved files
+        git add <resolved-files>    # stage the resolved files
         git rebase --continue
-        git rebase --skip # skip the conflict resolving (not recommend)
-        git rebase --abort # exit the rebase process and back to the original state
+        git rebase --skip           # skip the conflict resolving (not recommend)
+        git rebase --abort          # exit the rebase process and back to the original state
         ```
     - Interactive Rebase Example:
         ```sh
@@ -72,15 +72,15 @@
     - Identify a commit from one branch and apply it to another branch.
         ```sh
         git checkout another-branch
-        git cherry-pick <commit-hash> # apply the change of this commit to the current branch
+        git cherry-pick <commit-hash>   # apply the change of this commit to the current branch
         ```
     - **Notes:**
         - Cherry-pick process:
         ```sh
-        git log --graph --oneline --decorate --all # list the history of the whole repo
+        git log --graph --oneline --decorate --all  # list the history of the whole repo
         git cherry-pick <commit-hash>
         git add <resolved-file>
-        git cherry-pick --continue # the 3 commands have the same use as git rebase
+        git cherry-pick --continue                  # the 3 commands have the same use as git rebase
         git cherry-pick --skip
         git cherry-pick --abort
         ```
@@ -93,23 +93,23 @@
     - Stash uncommitted changes and apply them later.
         ```sh
         git stash # save all your unstaged files in a temporary area and revert the workspace to the HEAD commit
-        git stash -u # stash untracked files
-        git stash -a # include all files, even ignored one
-        git stash drop # remove a stash
-        git stash push <filename> # stash the specified file
-        git stash save "your message here" # stash with a message
-        git stash list # list all stashes
-        git stash pop # apply the recent stash
-        git stash apply stash@{2} # apply the second stash in the list, if you have multiple stashes
-        git stash branch <new-branch-name> stash@{0} # create a new branch from a stash
+        git stash -u                # stash untracked files
+        git stash -a                # include all files, even ignored one
+        git stash drop              # remove a stash
+        git stash push <filename>   # stash the specified file
+        git stash save "your message here"  # stash with a message
+        git stash list              # list all stashes
+        git stash pop               # apply the recent stash
+        git stash apply stash@{2}   # apply the second stash in the list, if you have multiple stashes
+        git stash branch <new-branch-name> stash@{0}    # create a new branch from a stash
         ```
 
 4. **Resetting** (10 minutes)
     - Experiment with different reset options.
         ```sh
-        git reset --soft <commit-hash> # move the HEAD to the specified commit, and keep changes in the staging place and working area
+        git reset --soft <commit-hash>  # move the HEAD to the specified commit, and keep changes in the staging place and working area
         git reset --mixed <commit-hash> # move the HEAD as soft, update the staging area to match the commit but keep changes in the working area
-        git reset --hard <commit-hash> # does as soft, update the staging area, but reset the working directory to match the commit aka discard all local changes -> should stash beforehand
+        git reset --hard <commit-hash>  # does as soft, update the staging area, but reset the working directory to match the commit aka discard all local changes -> should stash beforehand
         ```
     - **Notes:**
         - be careful with `--hard` as it could lead to data loss
@@ -120,9 +120,9 @@
     - After reset or do commands that remove the old commits, Git actually does keep your commits up to 90 days, but Git would hide it somewhere. `reflog` would help you to view them.
     - Use `git reflog` to recover a lost commit.
         ```sh
-        git reflog # view repo log
-        git reflog show <branch> # view log of a branch
-        git reflog show HEAD # view the log of the HEAD pointer
+        git reflog                  # view repo log
+        git reflog show <branch>    # view log of a branch
+        git reflog show HEAD        # view the log of the HEAD pointer
         ```
     - **Notes:**
         - recover a commit in a reset or other action
