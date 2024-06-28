@@ -194,9 +194,9 @@
 
 ### Collaborating on GitHub
 7. **Pull Requests** (10 minutes)
-    [x] Create a new repository on GitHub.
-    [x] Create a pull request and write a comprehensive description.
+    - [x] Create a new repository on GitHub.
+    - [x] Create a pull request and write a comprehensive description.
 
 8. **Code Reviews** (10 minutes)
-    [x] Invite a collaborator to review your pull request.
-    [x] Review a collaborator’s pull request and provide feedback.
+    - [x] Invite a collaborator to review your pull request.
+    - [x] Review a collaborator’s pull request and provide feedback.
