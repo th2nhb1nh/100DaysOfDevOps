@@ -149,7 +149,7 @@
     - **Notes:**
       - Comparision operators: 
         - `-eq`: is equal to `if [ "$a" -eq "$b" ]`
-        - `gt`: is greater than `if [ "$a" -gt "$b" ]`
+        - `-gt`: is greater than `if [ "$a" -gt "$b" ]`
         - `-ge`: is grater than or equal to `if [ "$a" -ge "$b" ]`
         - `<`: is less than (with double parentheses) `(("$a" < "$b"))`
 
