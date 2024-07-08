@@ -9,7 +9,6 @@
     - [Input/Output Redirection and Piping](#inputoutput-redirection-and-piping)
     - [Error Handling and Debugging](#error-handling-and-debugging)
     - [Script Optimization Techniques](#script-optimization-techniques)
-  - [Notes](#notes)
 
 ## Objectives
 - Master advanced shell scripting techniques.
@@ -63,13 +62,19 @@
         command < input.txt         # provide content of file as input for command
         command1 | command2         # send output from cmd 1 to cmd for further processing
         ```
+
 ### Error Handling and Debugging
 5. **Implementing Error Handling** (15 minutes)
     - Use `set -e`, `set -u`, and `set -o pipefail` for robust error handling.
         ```sh
-        set -e              
-        set -u              
-        set -o pipefail     
+        # script would exit immediately if any command within the script return non-zero status
+        set -e
+
+        # exit if have any unset variables -> help catch typos and undefined-related variables' errors
+        set -u
+
+        # by default, pipepline only return exit status at the last command -> save time by exit the pipeline whenever any commands in the pipeline fails
+        set -o pipefail
         ```
     - Trap errors and handle them gracefully.
         ```sh
@@ -85,12 +90,12 @@
     - Use built-in commands and avoid external processes where possible.
     - Profile script performance with `time` and `strace`.
         ```sh
-        time ./myscript.sh
-        strace -c ./myscript.sh
+        time ./myscript.sh          # measure time execution of a script
+        # real: total elapsed time to run a script from start to finish
+        # user: the amount of time the CPU run in user mode
+        # sys: the amount of time the CPU spent in kernel mode (time for system calls in the script, etc.)
         ```
-    - **Notes:**
-        - Optimize loops and conditionals.
-        - Use efficient data structures and algorithms.
-
-## Notes
-
+        ```sh
+        strace -c ./myscript.sh     # trace system calls and signals
+        # `-c`: summary of system calls, count, time and other stats for each system call
+        ```
