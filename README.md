@@ -1,25 +1,29 @@
+# 100-Day DevOps Learning Roadmap
+
 ### Day 1-10: Setting Up the Environment and Refreshing Key Concepts
 - **Day 1:** Advanced Git and GitHub workflows.
 - **Day 2:** Advanced Linux command-line operations and scripting.
-- **Day 3:** Set up a virtual machine using VirtualBox or Vagrant for lab environments.
-- **Day 4-5:** Advanced shell scripting and automation.
-- **Day 6:** Refresh Docker fundamentals and multi-container applications with Docker Compose.
-- **Day 7-8:** Docker Swarm and orchestration.
-- **Day 9:** Setting up a CI/CD pipeline using Jenkins or GitLab CI.
-- **Day 10:** Introduction to Kubernetes (K8s) architecture and components.
+- **Day 3:** Advanced shell scripting techniques.
+- **Day 4:** Automation with shell scripts.
+- **Day 5:** Refresh Docker fundamentals and multi-container applications with Docker Compose.
+- **Day 6:** Docker Swarm and orchestration (Day 1).
+- **Day 7:** Docker Swarm and orchestration (Day 2).
+- **Day 8:** Setting up a CI/CD pipeline using Jenkins or GitLab CI.
+- **Day 9:** Introduction to Kubernetes (K8s) architecture and components.
+- **Day 10:** Setting up a local Kubernetes cluster using Minikube or K3s.
 
 ### Day 11-30: Kubernetes (K8s)
-- **Day 11:** Setting up a local Kubernetes cluster using Minikube or K3s.
-- **Day 12-13:** Kubernetes core concepts: Pods, Deployments, and Services.
-- **Day 14-15:** Advanced ConfigMaps, Secrets, and security best practices.
-- **Day 16-17:** StatefulSets, Persistent Volumes, and dynamic provisioning.
-- **Day 18-19:** Helm charts for managing Kubernetes applications.
-- **Day 20-21:** Networking in Kubernetes: Ingress, Services, and Network Policies.
-- **Day 22-23:** Monitoring Kubernetes with Prometheus and Grafana.
-- **Day 24:** Kubernetes logging and troubleshooting.
-- **Day 25-26:** Advanced security in Kubernetes.
-- **Day 27-28:** Hands-on project: Deploy a microservices application on Kubernetes.
-- **Day 29-30:** Review and reinforcement of Kubernetes concepts.
+- **Day 11-12:** Kubernetes core concepts: Pods, Deployments, and Services.
+- **Day 13-14:** Advanced ConfigMaps, Secrets, and security best practices.
+- **Day 15-16:** StatefulSets, Persistent Volumes, and dynamic provisioning.
+- **Day 17-18:** Helm charts for managing Kubernetes applications.
+- **Day 19-20:** Networking in Kubernetes: Ingress, Services, and Network Policies.
+- **Day 21-22:** Monitoring Kubernetes with Prometheus and Grafana.
+- **Day 23:** Kubernetes logging and troubleshooting.
+- **Day 24-25:** Advanced security in Kubernetes.
+- **Day 26-27:** Hands-on project: Deploy a microservices application on Kubernetes.
+- **Day 28-29:** Review and reinforcement of Kubernetes concepts.
+- **Day 30:** Final review of Kubernetes.
 
 ### Day 31-45: Ansible
 - **Day 31:** Advanced Ansible architecture and playbook design.
@@ -88,5 +92,3 @@
 - **Day 97-98:** Final hands-on project: End-to-end deployment of a complex application using Kubernetes, Ansible, Terraform, Prometheus, Grafana, and CI/CD tools.
 - **Day 99:** Final project review and improvements.
 - **Day 100:** Recap of the 100-day journey and planning next steps for continuous learning in DevOps.
-
-This plan focuses on advanced topics and practical applications, assuming you already have a solid foundation in Docker and general DevOps principles.
