@@ -1,86 +1,86 @@
-# Day 7: Introduction to Docker Swarm and Basic Orchestration
+# Day 7: Advanced Docker Swarm Features and Orchestration
 
 ## Objectives
-- Understand Docker Swarm and its architecture.
-- Learn to set up and manage a Docker Swarm cluster.
-- Deploy services and applications on Docker Swarm.
+- Explore advanced Docker Swarm features.
+- Learn about networking, secrets management, and stack deployments in Docker Swarm.
+- Practice deploying a complex application using Docker Swarm.
 
 ## Topics Covered
-1. Docker Swarm Overview
-2. Setting Up a Docker Swarm Cluster
-3. Docker Swarm Nodes and Services
-4. Basic Docker Swarm Commands
+1. Advanced Swarm Networking
+2. Managing Secrets and Configs
+3. Deploying Stacks with Docker Compose
+4. Rolling Updates and Rollbacks
 
 ## Learning Plan (1-2 Hours)
 
-### Docker Swarm Overview
-1. **Introduction to Docker Swarm** (15 minutes)
-    - Understand what Docker Swarm is and its benefits for orchestration.
-    - **Notes:**
-        - 
-
-### Setting Up a Docker Swarm Cluster
-2. **Initialize a Swarm** (20 minutes)
-    - Initialize a Docker Swarm on a manager node.
+### Advanced Swarm Networking
+1. **Swarm Networking Concepts** (20 minutes)
+    - Learn about overlay networks and how to configure them in Docker Swarm.
         ```sh
-        docker swarm init
-        ```
-    - Add worker nodes to the Swarm.
-        ```sh
-        docker swarm join --token <token> <manager-ip>:2377
+        docker network create -d overlay my-overlay
         ```
     - **Notes:**
         - 
 
-### Docker Swarm Nodes and Services
-3. **Managing Nodes and Services** (20 minutes)
-    - List and inspect Swarm nodes.
+### Managing Secrets and Configs
+2. **Handling Secrets and Configs** (20 minutes)
+    - Create and manage secrets in Docker Swarm.
         ```sh
-        docker node ls
-        docker node inspect <node-id>
+        echo "my_secret" | docker secret create my_secret -
+        docker service create --name my-service --secret my_secret nginx
+        docker secret ls
         ```
-    - Create and manage services.
+    - Manage configurations using Docker configs.
         ```sh
-        docker service create --name my-service -p 80:80 nginx
-        docker service ls
-        docker service ps my-service
+        echo "my_config" | docker config create my_config -
+        docker service create --name my-service --config my_config nginx
+        docker config ls
         ```
     - **Notes:**
         - 
 
-### Basic Docker Swarm Commands
-4. **Using Docker Swarm Commands** (15 minutes)
-    - Learn essential commands to manage Docker Swarm clusters and services.
+### Deploying Stacks with Docker Compose
+3. **Using Docker Compose for Stack Deployments** (20 minutes)
+    - Deploy a multi-service stack using a Docker Compose file.
         ```sh
-        docker swarm update
-        docker service scale my-service=3
+        docker stack deploy -c docker-compose.yml my_stack
+        docker stack ls
+        docker stack services my_stack
+        ```
+    - **Notes:**
+        - 
+
+### Rolling Updates and Rollbacks
+4. **Performing Rolling Updates and Rollbacks** (20 minutes)
+    - Update services with zero downtime and roll back if needed.
+        ```sh
         docker service update --image nginx:latest my-service
-        docker service rm my-service
+        docker service rollback my-service
         ```
     - **Notes:**
         - 
 
 ## Hands-On Exercises (1 Hour)
 
-### Exercise 1: Initialize a Docker Swarm (20 minutes)
-- Set up a Docker Swarm cluster with one manager node and at least one worker node.
+### Exercise 1: Advanced Networking (20 minutes)
+- Create and use an overlay network in Docker Swarm.
 - **Notes:**
     - 
 
-### Exercise 2: Deploy and Manage Services (20 minutes)
-- Create and manage a service on Docker Swarm.
+### Exercise 2: Manage Secrets and Configs (20 minutes)
+- Create and use secrets and configs in a Swarm service.
 - **Notes:**
     - 
 
-### Exercise 3: Scale and Update Services (20 minutes)
-- Scale and update a service within the Docker Swarm cluster.
+### Exercise 3: Deploy a Multi-Service Stack (20 minutes)
+- Deploy and manage a multi-service application stack using Docker Compose.
 - **Notes:**
     - 
 
 ### Evening Review
 5. **Review and Reflect** (10 minutes)
-    - Summarize what you've learned about Docker Swarm and basic orchestration.
+    - Summarize what you've learned about advanced Docker Swarm features and orchestration.
     - Reflect on any challenges faced during hands-on exercises and how to overcome them.
-    - Plan for the next day’s topic: Advanced Docker Swarm Features and Orchestration.
+    - Plan for the next day’s topic: Kubernetes (K8s) Introduction and Architecture.
     - **Notes:**
-        - 
+      - 

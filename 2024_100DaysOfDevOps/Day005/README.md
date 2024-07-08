@@ -1,102 +1,107 @@
-# Day 5: Automation with Shell Scripts
+# Day 5: Refresh Docker Fundamentals and Multi-Container Applications with Docker Compose
 
 ## Objectives
-- Learn to automate repetitive tasks using shell scripts.
-- Write scripts to automate system administration tasks.
-- Schedule automated tasks using cron jobs.
+- Refresh Docker fundamentals and core concepts.
+- Learn to manage multi-container applications using Docker Compose.
+- Practice creating and deploying a multi-container application.
 
 ## Topics Covered
-1. Identifying Tasks for Automation
-2. Writing Automation Scripts
-3. Scheduling Tasks with Cron
-4. Automating System Administration
-5. Automating File Management
-6. Automating Backups and Updates
+1. Docker Fundamentals Refresh
+2. Docker Images and Containers
+3. Docker Networking and Volumes
+4. Introduction to Docker Compose
+5. Writing Docker Compose Files
+6. Managing Multi-Container Applications with Docker Compose
 
 ## Learning Plan (1-2 Hours)
 
-### Identifying Tasks for Automation
-1. **Understanding Task Automation** (10 minutes)
-    - Identify tasks that can be automated using shell scripts.
+### Docker Fundamentals Refresh
+1. **Review Docker Basics** (15 minutes)
+    - Refresh your knowledge of Docker architecture, images, and containers.
     - **Notes:**
         - 
 
-### Writing Automation Scripts
-2. **Creating Automation Scripts** (20 minutes)
-    - Write a script to automate a simple task, such as creating directories and files.
+### Docker Images and Containers
+2. **Working with Docker Images and Containers** (20 minutes)
+    - Review commands to build, run, and manage Docker images and containers.
         ```sh
-        #!/bin/bash
-        for dir in {1..5}; do
-            mkdir "dir$dir"
-            touch "dir$dir/file$dir.txt"
-        done
+        docker build -t my-image .
+        docker run -d --name my-container my-image
+        docker ps
+        docker stop my-container
+        docker rm my-container
+        docker rmi my-image
         ```
     - **Notes:**
         - 
 
-### Scheduling Tasks with Cron
-3. **Using Cron for Scheduling** (20 minutes)
-    - Write a cron job to schedule the automation script.
+### Docker Networking and Volumes
+3. **Networking and Volumes** (20 minutes)
+    - Review Docker networking concepts and volume management.
         ```sh
-        crontab -e
-        # Add a job to run the script every day at midnight
-        0 0 * * * /path/to/your/script.sh
+        docker network create my-network
+        docker volume create my-volume
+        docker run -d --name my-container --network my-network -v my-volume:/data my-image
         ```
     - **Notes:**
         - 
 
-### Automating System Administration
-4. **Automating System Tasks** (15 minutes)
-    - Write scripts to automate system updates and maintenance tasks.
-        ```sh
-        #!/bin/bash
-        sudo apt-get update && sudo apt-get upgrade -y
+### Introduction to Docker Compose
+4. **Docker Compose Overview** (10 minutes)
+    - Learn the basics of Docker Compose and its benefits for managing multi-container applications.
+    - **Notes:**
+        - 
+
+### Writing Docker Compose Files
+5. **Creating a Docker Compose File** (15 minutes)
+    - Write a `docker-compose.yml` file to define a multi-container application.
+        ```yaml
+        version: '3'
+        services:
+          web:
+            image: nginx
+            ports:
+              - "80:80"
+          db:
+            image: mysql
+            environment:
+              MYSQL_ROOT_PASSWORD: example
         ```
     - **Notes:**
         - 
 
-### Automating File Management
-5. **Automating File Handling Tasks** (15 minutes)
-    - Write scripts to automate file backups and cleanups.
+### Managing Multi-Container Applications with Docker Compose
+6. **Using Docker Compose Commands** (20 minutes)
+    - Learn commands to manage multi-container applications.
         ```sh
-        #!/bin/bash
-        tar -cvf /backup/backup.tar /important/data
-        find /tmp -type f -mtime +7 -exec rm {} \;
-        ```
-    - **Notes:**
-        - 
-
-### Automating Backups and Updates
-6. **Automating Backups** (20 minutes)
-    - Write a script to automate regular backups and updates.
-        ```sh
-        #!/bin/bash
-        tar -cvf /backup/backup_$(date +%F).tar /important/data
-        sudo apt-get update && sudo apt-get upgrade -y
+        docker-compose up -d
+        docker-compose ps
+        docker-compose stop
+        docker-compose down
         ```
     - **Notes:**
         - 
 
 ## Hands-On Exercises (1 Hour)
 
-### Exercise 1: Automate File Creation (20 minutes)
-- Write a script to automate the creation of directories and files.
+### Exercise 1: Refresh Docker Commands (20 minutes)
+- Practice building and running Docker images and containers.
 - **Notes:**
     - 
 
-### Exercise 2: Schedule a Script with Cron (20 minutes)
-- Schedule the script from Exercise 1 to run at a specific time using cron.
+### Exercise 2: Create a Docker Compose File (20 minutes)
+- Write a `docker-compose.yml` file to define a simple multi-container application.
 - **Notes:**
     - 
 
-### Exercise 3: Automate System Maintenance (20 minutes)
-- Write and schedule a script to automate system updates and cleanups.
+### Exercise 3: Deploy and Manage Multi-Container Application (20 minutes)
+- Use Docker Compose to deploy and manage the multi-container application from Exercise 2.
 - **Notes:**
     - 
 
 ### Evening Review
 7. **Review and Reflect** (10 minutes)
-    - Summarize what you've learned about automation with shell scripts.
+    - Summarize what you've refreshed about Docker fundamentals and multi-container applications with Docker Compose.
     - Reflect on any challenges faced during hands-on exercises and how to overcome them.
     - Plan for the next day’s topic: Introduction to Kubernetes (K8s) and its Architecture.
     - **Notes:**

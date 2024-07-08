@@ -1,105 +1,96 @@
-# Day 3: Set Up a Virtual Machine Using VirtualBox or Vagrant for Lab Environments
+# Day 3: Advanced Shell Scripting Techniques
+
+- [Day 3: Advanced Shell Scripting Techniques](#day-3-advanced-shell-scripting-techniques)
+  - [Objectives](#objectives)
+  - [Topics Covered](#topics-covered)
+  - [Learning Plan (1-2 Hours)](#learning-plan-1-2-hours)
+    - [Advanced Script Structuring](#advanced-script-structuring)
+    - [Handling Command-Line Arguments](#handling-command-line-arguments)
+    - [Input/Output Redirection and Piping](#inputoutput-redirection-and-piping)
+    - [Error Handling and Debugging](#error-handling-and-debugging)
+    - [Script Optimization Techniques](#script-optimization-techniques)
+  - [Notes](#notes)
 
 ## Objectives
-- Understand the use of VirtualBox and Vagrant for creating and managing virtual machines.
-- Set up a virtual machine using VirtualBox.
-- Use Vagrant to automate the setup of virtual environments.
+- Master advanced shell scripting techniques.
+- Write scripts to handle complex tasks and automation.
+- Learn to debug and optimize shell scripts.
 
 ## Topics Covered
-1. Introduction to VirtualBox
-2. Setting Up a Virtual Machine with VirtualBox
-3. Introduction to Vagrant
-4. Creating a Vagrantfile
-5. Provisioning a Virtual Machine with Vagrant
-6. Managing Vagrant Environments
+1. Handling Command-Line Arguments
+2. Input/Output Redirection and Piping
+3. Error Handling and Debugging
+4. Script Optimization Techniques
 
 ## Learning Plan (1-2 Hours)
 
-### Introduction to VirtualBox
-1. **Overview of VirtualBox** (10 minutes)
-    - Learn the basics of VirtualBox and its use cases.
+### Advanced Script Structuring
+1. **Script Organization and Best Practices** (15 minutes)
+    - Learn best practices for organizing and structuring scripts.
     - **Notes:**
-        - 
+        - Use meaningful variable names.
+        - Modularize code into functions.
+        - Comment your code for clarity.
+        - Follow a consistent coding style.
 
-### Setting Up a Virtual Machine with VirtualBox
-2. **Installing VirtualBox** (10 minutes)
-    - Download and install VirtualBox.
-        - Visit [VirtualBox Downloads](https://www.virtualbox.org/wiki/Downloads) and follow installation instructions.
-    - **Notes:**
-        - 
-
-3. **Creating a New Virtual Machine** (15 minutes)
-    - Set up a new virtual machine in VirtualBox.
-        - Choose OS type, allocate memory, and create a virtual hard disk.
-        - Install a Linux distribution (e.g., Ubuntu) on the virtual machine.
-    - **Notes:**
-        - 
-
-### Introduction to Vagrant
-4. **Overview of Vagrant** (10 minutes)
-    - Learn the basics of Vagrant and its benefits for automating virtual machine setups.
-    - **Notes:**
-        - 
-
-### Creating a Vagrantfile
-5. **Writing a Basic Vagrantfile** (15 minutes)
-    - Create a new directory for your Vagrant project.
+### Handling Command-Line Arguments
+2. **Processing Arguments in Scripts** (20 minutes)
+    - Use `$1`, `$2`, etc., to access command-line arguments.
         ```sh
-        mkdir my-vagrant-project
-        cd my-vagrant-project
-        vagrant init
+        echo "First argument: $1"
+        echo "Second argument: $2"
         ```
-    - Edit the generated `Vagrantfile` to configure your virtual machine.
-        ```ruby
-        Vagrant.configure("2") do |config|
-            config.vm.box = "ubuntu/bionic64"
-        end
-        ```
-    - **Notes:**
-        - 
-
-### Provisioning a Virtual Machine with Vagrant
-6. **Provisioning and Managing the VM** (15 minutes)
-    - Start and provision your Vagrant virtual machine.
+    - Use `getopts` for more complex argument parsing.
         ```sh
-        vagrant up
-        vagrant ssh
+        while getopts "a:b:" opt; do
+          case $opt in
+            a) echo "Option A: $OPTARG";;
+            b) echo "Option B: $OPTARG";;
+            \?) echo "Invalid option";;
+          esac
+        done
         ```
     - **Notes:**
-        - 
+        - Handle optional and required arguments.
+        - Provide usage information for the script.
 
-### Managing Vagrant Environments
-7. **Managing Vagrant Machines** (10 minutes)
-    - Learn how to manage Vagrant environments with commands like `vagrant halt`, `vagrant destroy`, and `vagrant status`.
+### Input/Output Redirection and Piping
+4. **Advanced I/O Redirection and Piping** (20 minutes)
+    - Use redirection operators and pipes to manage input and output.
         ```sh
-        vagrant halt
-        vagrant destroy
-        vagrant status
+        command > output.txt        # overwrite file with new content
+        command >> output.txt       # append new content to file
+        command < input.txt         # provide content of file as input for command
+        command1 | command2         # send output from cmd 1 to cmd for further processing
+        ```
+### Error Handling and Debugging
+5. **Implementing Error Handling** (15 minutes)
+    - Use `set -e`, `set -u`, and `set -o pipefail` for robust error handling.
+        ```sh
+        set -e              
+        set -u              
+        set -o pipefail     
+        ```
+    - Trap errors and handle them gracefully.
+        ```sh
+        trap 'echo "An error occurred"; exit 1' ERR
         ```
     - **Notes:**
-        - 
+        - Use `trap` to handle script termination and errors.
+        - Check return values of commands.
 
-## Hands-On Exercises (1 Hour)
-
-### Exercise 1: Set Up a VM with VirtualBox (20 minutes)
-- Create and configure a virtual machine in VirtualBox.
-- **Notes:**
-    - 
-
-### Exercise 2: Automate VM Setup with Vagrant (20 minutes)
-- Write a `Vagrantfile` and provision a virtual machine using Vagrant.
-- **Notes:**
-    - 
-
-### Exercise 3: Manage Vagrant Environments (20 minutes)
-- Practice managing your Vagrant environment with various Vagrant commands.
-- **Notes:**
-    - 
-
-### Evening Review
-8. **Review and Reflect** (10 minutes)
-    - Summarize what you've learned about setting up and managing virtual machines using VirtualBox and Vagrant.
-    - Reflect on any challenges faced during hands-on exercises and how to overcome them.
-    - Plan for the next day’s topic: Kubernetes (K8s) Introduction and Architecture.
+### Script Optimization Techniques
+6. **Optimizing Shell Scripts** (20 minutes)
+    - Identify and eliminate unnecessary commands.
+    - Use built-in commands and avoid external processes where possible.
+    - Profile script performance with `time` and `strace`.
+        ```sh
+        time ./myscript.sh
+        strace -c ./myscript.sh
+        ```
     - **Notes:**
-        - 
+        - Optimize loops and conditionals.
+        - Use efficient data structures and algorithms.
+
+## Notes
+

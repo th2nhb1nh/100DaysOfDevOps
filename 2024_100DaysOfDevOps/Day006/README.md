@@ -1,108 +1,86 @@
-# Day 6: Refresh Docker Fundamentals and Multi-Container Applications with Docker Compose
+# Day 6: Introduction to Docker Swarm and Basic Orchestration
 
 ## Objectives
-- Refresh Docker fundamentals and core concepts.
-- Learn to manage multi-container applications using Docker Compose.
-- Practice creating and deploying a multi-container application.
+- Understand Docker Swarm and its architecture.
+- Learn to set up and manage a Docker Swarm cluster.
+- Deploy services and applications on Docker Swarm.
 
 ## Topics Covered
-1. Docker Fundamentals Refresh
-2. Docker Images and Containers
-3. Docker Networking and Volumes
-4. Introduction to Docker Compose
-5. Writing Docker Compose Files
-6. Managing Multi-Container Applications with Docker Compose
+1. Docker Swarm Overview
+2. Setting Up a Docker Swarm Cluster
+3. Docker Swarm Nodes and Services
+4. Basic Docker Swarm Commands
 
 ## Learning Plan (1-2 Hours)
 
-### Docker Fundamentals Refresh
-1. **Review Docker Basics** (15 minutes)
-    - Refresh your knowledge of Docker architecture, images, and containers.
+### Docker Swarm Overview
+1. **Introduction to Docker Swarm** (15 minutes)
+    - Understand what Docker Swarm is and its benefits for orchestration.
     - **Notes:**
         - 
 
-### Docker Images and Containers
-2. **Working with Docker Images and Containers** (20 minutes)
-    - Review commands to build, run, and manage Docker images and containers.
+### Setting Up a Docker Swarm Cluster
+2. **Initialize a Swarm** (20 minutes)
+    - Initialize a Docker Swarm on a manager node.
         ```sh
-        docker build -t my-image .
-        docker run -d --name my-container my-image
-        docker ps
-        docker stop my-container
-        docker rm my-container
-        docker rmi my-image
+        docker swarm init
+        ```
+    - Add worker nodes to the Swarm.
+        ```sh
+        docker swarm join --token <token> <manager-ip>:2377
         ```
     - **Notes:**
         - 
 
-### Docker Networking and Volumes
-3. **Networking and Volumes** (20 minutes)
-    - Review Docker networking concepts and volume management.
+### Docker Swarm Nodes and Services
+3. **Managing Nodes and Services** (20 minutes)
+    - List and inspect Swarm nodes.
         ```sh
-        docker network create my-network
-        docker volume create my-volume
-        docker run -d --name my-container --network my-network -v my-volume:/data my-image
+        docker node ls
+        docker node inspect <node-id>
+        ```
+    - Create and manage services.
+        ```sh
+        docker service create --name my-service -p 80:80 nginx
+        docker service ls
+        docker service ps my-service
         ```
     - **Notes:**
         - 
 
-### Introduction to Docker Compose
-4. **Docker Compose Overview** (10 minutes)
-    - Learn the basics of Docker Compose and its benefits for managing multi-container applications.
-    - **Notes:**
-        - 
-
-### Writing Docker Compose Files
-5. **Creating a Docker Compose File** (15 minutes)
-    - Write a `docker-compose.yml` file to define a multi-container application.
-        ```yaml
-        version: '3'
-        services:
-          web:
-            image: nginx
-            ports:
-              - "80:80"
-          db:
-            image: mysql
-            environment:
-              MYSQL_ROOT_PASSWORD: example
-        ```
-    - **Notes:**
-        - 
-
-### Managing Multi-Container Applications with Docker Compose
-6. **Using Docker Compose Commands** (20 minutes)
-    - Learn commands to manage multi-container applications.
+### Basic Docker Swarm Commands
+4. **Using Docker Swarm Commands** (15 minutes)
+    - Learn essential commands to manage Docker Swarm clusters and services.
         ```sh
-        docker-compose up -d
-        docker-compose ps
-        docker-compose stop
-        docker-compose down
+        docker swarm update
+        docker service scale my-service=3
+        docker service update --image nginx:latest my-service
+        docker service rm my-service
         ```
     - **Notes:**
         - 
 
 ## Hands-On Exercises (1 Hour)
 
-### Exercise 1: Refresh Docker Commands (20 minutes)
-- Practice building and running Docker images and containers.
+### Exercise 1: Initialize a Docker Swarm (20 minutes)
+- Set up a Docker Swarm cluster with one manager node and at least one worker node.
 - **Notes:**
     - 
 
-### Exercise 2: Create a Docker Compose File (20 minutes)
-- Write a `docker-compose.yml` file to define a simple multi-container application.
+### Exercise 2: Deploy and Manage Services (20 minutes)
+- Create and manage a service on Docker Swarm.
 - **Notes:**
     - 
 
-### Exercise 3: Deploy and Manage Multi-Container Application (20 minutes)
-- Use Docker Compose to deploy and manage the multi-container application from Exercise 2.
+### Exercise 3: Scale and Update Services (20 minutes)
+- Scale and update a service within the Docker Swarm cluster.
 - **Notes:**
     - 
 
 ### Evening Review
-7. **Review and Reflect** (10 minutes)
-    - Summarize what you've refreshed about Docker fundamentals and multi-container applications with Docker Compose.
+5. **Review and Reflect** (10 minutes)
+    - Summarize what you've learned about Docker Swarm and basic orchestration.
     - Reflect on any challenges faced during hands-on exercises and how to overcome them.
-    - Plan for the next day’s topic: Introduction to Kubernetes (K8s) and its Architecture.
+    - Plan for the next day’s topic: Advanced Docker Swarm Features and Orchestration.
     - **Notes:**
         - 
