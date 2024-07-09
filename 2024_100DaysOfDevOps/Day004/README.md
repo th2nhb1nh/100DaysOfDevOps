@@ -1,103 +1,103 @@
 # Day 4: Automation with Shell Scripts
 
+- [Day 4: Automation with Shell Scripts](#day-4-automation-with-shell-scripts)
+  - [Objectives](#objectives)
+  - [Topics Covered](#topics-covered)
+  - [Learning Plan (1-2 Hours)](#learning-plan-1-2-hours)
+    - [Automating Repetitive Tasks](#automating-repetitive-tasks)
+    - [Managing Files and Directories](#managing-files-and-directories)
+    - [Network Automation](#network-automation)
+    - [User and Permission Management](#user-and-permission-management)
+    - [Error Handling and Notifications](#error-handling-and-notifications)
+
 ## Objectives
-- Learn to automate repetitive tasks using shell scripts.
-- Write scripts to automate system administration tasks.
-- Schedule automated tasks using cron jobs.
+- Automate repetitive tasks using shell scripts.
+- Learn to schedule and manage automated scripts.
+- Understand how to handle files and directories programmatically.
 
 ## Topics Covered
-1. Identifying Tasks for Automation
-2. Writing Automation Scripts
-3. Scheduling Tasks with Cron
-4. Automating System Administration
-5. Automating File Management
-6. Automating Backups and Updates
+1. Automating Repetitive Tasks
+2. Managing Files and Directories
+3. Network Automation
+4. User and Permission Management
+5. Error Handling and Notifications
 
 ## Learning Plan (1-2 Hours)
 
-### Identifying Tasks for Automation
-1. **Understanding Task Automation** (10 minutes)
-    - Identify tasks that can be automated using shell scripts.
-    - **Notes:**
-        - 
-
-### Writing Automation Scripts
-2. **Creating Automation Scripts** (20 minutes)
-    - Write a script to automate a simple task, such as creating directories and files.
+### Automating Repetitive Tasks
+1. **Automating Common Tasks** (15 minutes)
+    - Write scripts to automate daily tasks like backups, updates, and report generation.
+      - Back-up script:
         ```sh
         #!/bin/bash
-        for dir in {1..5}; do
-            mkdir "dir$dir"
-            touch "dir$dir/file$dir.txt"
+        src="path/to/src"
+        des="path/to/des/date_$(date +%Y%m%d).tar.gz"
+        tar -czvf $des $src
+        echo "Backup completed at $des"
+        ```
+      - Update script:
+        ```sh
+        #!/bin/bash
+        sudo apt update && sudo apt upgrade -y
+        echo "System updated"
+        ```
+
+### Managing Files and Directories
+2. **File and Directory Automation** (20 minutes)
+    - Write scripts to manage files and directories.
+        ```sh
+        # Create a directory if it doesn't exist
+        [ ! -d /path/to/dir ] && mkdir -p /path/to/dir
+
+        # Move files older than 7 days to an archive
+        find /path/to/files -type f -mtime +7 -exec mv {} /path/to/archive/ \;
+
+        # you can also use cron job to schedule for the task
+        * * * * * find /path/to/files -type f -mtime +7 -exec mv {} /path/to/archive/ \;
+        ```
+
+### Network Automation
+3. **Automating Network Tasks** (15 minutes)
+    - Write scripts for network-related tasks like ping tests and bandwidth monitoring.
+        ```sh
+        # Ping a list of hosts
+        for host in google.com yahoo.com bing.com; do
+            ping -c 4 $host > /dev/null && echo "$host is reachable" || echo "$host is not reachable"
         done
         ```
     - **Notes:**
-        - 
+        - Use `curl` or `wget` for HTTP requests and downloads.
 
-### Scheduling Tasks with Cron
-3. **Using Cron for Scheduling** (20 minutes)
-    - Write a cron job to schedule the automation script.
+### User and Permission Management
+4. **Automating User and Permission Tasks** (20 minutes)
+    - Write scripts to automate user and permission management.
         ```sh
-        crontab -e
-        # Add a job to run the script every day at midnight
-        0 0 * * * /path/to/your/script.sh
+        # Create a new user and set a password
+        useradd newuser
+        echo "newuser:password" | chpasswd
+
+        # Set permissions on a directory
+        chown -R newuser:newuser /path/to/dir
+        chmod -R 755 /path/to/dir
         ```
     - **Notes:**
-        - 
+        - Manage user accounts and permissions programmatically.
+        - Ensure security by setting appropriate permissions.
 
-### Automating System Administration
-4. **Automating System Tasks** (15 minutes)
-    - Write scripts to automate system updates and maintenance tasks.
+### Error Handling and Notifications
+5. **Handling Errors and Sending Notifications** (20 minutes)
+    - `||` operator: OR: if cmd1 failed, run cmd2, else, exit.
         ```sh
-        #!/bin/bash
-        sudo apt-get update && sudo apt-get upgrade -y
+        cmd1 || cmd2
+        ```
+    - Implement error handling and send notifications for script failures.
+        ```sh
+        # Check if a command succeeds, if not send an email
+        command || echo "Command failed" | mail -s "Script Error" user@example.com
+
+        # Log errors (if have) to a file 
+        command 2>> error.log
         ```
     - **Notes:**
-        - 
-
-### Automating File Management
-5. **Automating File Handling Tasks** (15 minutes)
-    - Write scripts to automate file backups and cleanups.
-        ```sh
-        #!/bin/bash
-        tar -cvf /backup/backup.tar /important/data
-        find /tmp -type f -mtime +7 -exec rm {} \;
-        ```
-    - **Notes:**
-        - 
-
-### Automating Backups and Updates
-6. **Automating Backups** (20 minutes)
-    - Write a script to automate regular backups and updates.
-        ```sh
-        #!/bin/bash
-        tar -cvf /backup/backup_$(date +%F).tar /important/data
-        sudo apt-get update && sudo apt-get upgrade -y
-        ```
-    - **Notes:**
-        - 
-
-## Hands-On Exercises (1 Hour)
-
-### Exercise 1: Automate File Creation (20 minutes)
-- Write a script to automate the creation of directories and files.
-- **Notes:**
-    - 
-
-### Exercise 2: Schedule a Script with Cron (20 minutes)
-- Schedule the script from Exercise 1 to run at a specific time using cron.
-- **Notes:**
-    - 
-
-### Exercise 3: Automate System Maintenance (20 minutes)
-- Write and schedule a script to automate system updates and cleanups.
-- **Notes:**
-    - 
-
-### Evening Review
-7. **Review and Reflect** (10 minutes)
-    - Summarize what you've learned about automation with shell scripts.
-    - Reflect on any challenges faced during hands-on exercises and how to overcome them.
-    - Plan for the next day’s topic: Introduction to Kubernetes (K8s) and its Architecture.
-    - **Notes:**
-        - 
+        - Use logging and notifications to monitor script execution.
+        - Handle errors gracefully and provide useful feedback.
