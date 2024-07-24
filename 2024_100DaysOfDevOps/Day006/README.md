@@ -1,5 +1,14 @@
 # Day 6: Introduction to Docker Swarm and Basic Orchestration
 
+- [Day 6: Introduction to Docker Swarm and Basic Orchestration](#day-6-introduction-to-docker-swarm-and-basic-orchestration)
+  - [Objectives](#objectives)
+  - [Topics Covered](#topics-covered)
+  - [Learning Plan (1-2 Hours)](#learning-plan-1-2-hours)
+    - [Docker Swarm Overview](#docker-swarm-overview)
+    - [Setting Up a Docker Swarm Cluster](#setting-up-a-docker-swarm-cluster)
+    - [Docker Swarm Nodes and Services](#docker-swarm-nodes-and-services)
+    - [Basic Docker Swarm Commands](#basic-docker-swarm-commands)
+
 ## Objectives
 - Understand Docker Swarm and its architecture.
 - Learn to set up and manage a Docker Swarm cluster.
@@ -17,7 +26,10 @@
 1. **Introduction to Docker Swarm** (15 minutes)
     - Understand what Docker Swarm is and its benefits for orchestration.
     - **Notes:**
-        - 
+      - a docker's native clustering and orchestration (similar to k8s)
+      - pros:
+        - **native tool with docker:a** easy to use with docker cli + api; can use the same `docker-compose.yaml` file to deploy not only one but multiple node setup.
+        - **ha (high availability):** fault tolerance (auto-create new node when other fail to make sure application works fine); 
 
 ### Setting Up a Docker Swarm Cluster
 2. **Initialize a Swarm** (20 minutes)
@@ -57,30 +69,5 @@
         docker service update --image nginx:latest my-service
         docker service rm my-service
         ```
-    - **Notes:**
-        - 
-
-## Hands-On Exercises (1 Hour)
-
-### Exercise 1: Initialize a Docker Swarm (20 minutes)
-- Set up a Docker Swarm cluster with one manager node and at least one worker node.
-- **Notes:**
-    - 
-
-### Exercise 2: Deploy and Manage Services (20 minutes)
-- Create and manage a service on Docker Swarm.
-- **Notes:**
-    - 
-
-### Exercise 3: Scale and Update Services (20 minutes)
-- Scale and update a service within the Docker Swarm cluster.
-- **Notes:**
-    - 
-
-### Evening Review
-5. **Review and Reflect** (10 minutes)
-    - Summarize what you've learned about Docker Swarm and basic orchestration.
-    - Reflect on any challenges faced during hands-on exercises and how to overcome them.
-    - Plan for the next day’s topic: Advanced Docker Swarm Features and Orchestration.
     - **Notes:**
         - 
